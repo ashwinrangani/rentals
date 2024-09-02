@@ -9,6 +9,7 @@ app_license = "mit"
 # ------------------
 
 # required_apps = []
+fixtures = [{"dt" : "Vehicle Type", "filters": {"is_standard":1}}]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -148,23 +149,15 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"rentals.tasks.all"
-# 	],
-# 	"daily": [
-# 		"rentals.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"rentals.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"rentals.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"rentals.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	
+    "cron" : {
+        "30 15 * * 3" : [
+            "rentals.my_api.send_payment_reminders"
+        ]
+    }
+
+}
 
 # Testing
 # -------
